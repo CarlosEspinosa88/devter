@@ -1,9 +1,9 @@
 import { colors } from '../../styles/theme';
 
-export default function Button({ children }) {
+export default function Button({ children, onClick }) {
   return (
     <>
-      <button>{children}</button>
+      <button onClick={onClick}>{children}</button>
       <style jsx>{`
         button {
           border: 0;
