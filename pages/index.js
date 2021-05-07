@@ -1,42 +1,49 @@
-/* eslint-disable no-mixed-operators */
-import { useState, useEffect } from 'react'
-import { colors } from '../styles/theme'
-import { addOpacityToColor } from '../styles/utils'
-import AppLayout from '../components/AppLayout'
-import GitHub from '../components/Icon/GitHub'
-import Button from '../components/Button'
-import { loginWithGitHub, onAuthStateChanged } from '../firebase/client'
+import { useState, useEffect } from 'react';
+import { colors } from '../styles/theme';
+import { addOpacityToColor } from '../styles/utils';
+import AppLayout from '../components/AppLayout';
+import GitHub from '../components/Icon/GitHub';
+import Button from '../components/Button';
+import { loginWithGitHub, onAuthStateChanged } from '../firebase/client';
 
-export default function Home () {
-  const shadowColor = addOpacityToColor(colors.gray.semiLight, 0.9)
-  const [user, setUser] = useState(undefined)
+export default function Home() {
+  const shadowColor = addOpacityToColor(colors.gray.semiLight, 0.9);
+  const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    onAuthStateChanged(setUser)
-  }, [])
+    onAuthStateChanged(setUser);
+  }, []);
 
   const handlerClickLogin = () => {
-    loginWithGitHub().then(setUser).catch(err => {
-      console.log(err)
-    })
-  }
+    loginWithGitHub()
+      .then(setUser)
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <AppLayout>
       <section>
         <img src="/fish.svg" width="100" height="100" alt="devter" />
-        <h1>Welcome to Devter {user?.avatar && user?.username }</h1>
+        <h1>Welcome to Devter {user?.avatar && user?.username}</h1>
         <div>
-          {user === undefined || user?.avatar === undefined && (
-            <Button onClick={handlerClickLogin}>
-              <GitHub width={20} height={20} fill={`${colors.white}`} />
-              Ingresar
-            </Button>
-          )}
+          {user === undefined ||
+            (user?.avatar === undefined && (
+              <Button onClick={handlerClickLogin}>
+                <GitHub width={20} height={20} fill={`${colors.white}`} />
+                Ingresar
+              </Button>
+            ))}
 
           {user?.avatar && (
             <div className="card">
-              <img className="avatar" width={80} height={80} src={user?.avatar} />
+              <img
+                className="avatar"
+                width={80}
+                height={80}
+                src={user?.avatar}
+              />
               <div className="info">
                 <h3>{user?.username}</h3>
                 <p>{user?.email}</p>
@@ -54,23 +61,22 @@ export default function Home () {
             place-content: center;
           }
 
-
           h1 {
             font-size: 25px;
             text-align: center;
-            color: ${colors.black}
+            color: ${colors.black};
           }
 
           h3 {
             font-size: 16px;
             margin: 0 0 10px 0;
-            color: ${colors.black}
+            color: ${colors.black};
           }
 
           p {
             font-size: 14px;
             margin: 0 0 10px 0;
-            color: ${colors.black}
+            color: ${colors.black};
           }
 
           .avatar {
@@ -85,7 +91,7 @@ export default function Home () {
             place-content: center;
             border-radius: 10px;
             background-color: ${colors.gray.light};
-            box-shadow: 0px 0px 14px 0px ${shadowColor}
+            box-shadow: 0px 0px 14px 0px ${shadowColor};
           }
 
           .info {
@@ -97,5 +103,5 @@ export default function Home () {
         `}
       </style>
     </AppLayout>
-  )
+  );
 }

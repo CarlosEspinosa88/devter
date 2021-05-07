@@ -1,21 +1,22 @@
 export const fonts = {
-  base: 'system-ui, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Ubuntu, “Helvetica Neue”, sans-serif'
-}
+  base:
+    'system-ui, -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Ubuntu, “Helvetica Neue”, sans-serif',
+};
 
 export const breakpoints = {
   mobile: '420px',
-  tablet: '768px'
-}
+  tablet: '768px',
+};
 
 export const colors = {
   black: '#000000',
   gray: {
     light: '#f1f1f1',
-    semiLight: '#dddddd'
+    semiLight: '#dddddd',
   },
   white: '#ffffff',
   primary: '#8379c1',
   secondary: '#bd4150',
   redLight: '#f07f85',
-  purpleLight: '#978ecb'
-}
+  purpleLight: '#978ecb',
+};

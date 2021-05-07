@@ -1,6 +1,6 @@
-import { colors } from '../../styles/theme'
+import { colors } from '../../styles/theme';
 
-export default function Button ({ children, onClick }) {
+export default function Button({ children, onClick }) {
   return (
     <>
       <button onClick={onClick}>{children}</button>
@@ -15,7 +15,7 @@ export default function Button ({ children, onClick }) {
             padding: 10px 30px;
             align-items: center;
             border-radius: 990px;
-            transition: opacity .3s ease;
+            transition: opacity 0.3s ease;
             background-color: ${colors.purpleLight};
           }
 
@@ -24,10 +24,10 @@ export default function Button ({ children, onClick }) {
           }
 
           button:hover {
-            opacity: .7
+            opacity: 0.7;
           }
         `}
       </style>
     </>
-  )
+  );
 }

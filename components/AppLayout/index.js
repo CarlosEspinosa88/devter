@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import style, { GlobalStyles } from './styles'
+import Head from 'next/head';
+import style, { GlobalStyles } from './styles';
 
-export default function AppLayout ({ children }) {
+export default function AppLayout({ children }) {
   return (
     <>
       <Head>
@@ -9,12 +9,12 @@ export default function AppLayout ({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </div>
       <style jsx>{style}</style>
-      <style jsx global>{GlobalStyles}</style>
+      <style jsx global>
+        {GlobalStyles}
+      </style>
     </>
-  )
+  );
 }
