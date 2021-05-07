@@ -17,5 +17,5 @@ export const colors = {
   primary: '#8379c1',
   secondary: '#bd4150',
   redLight: '#f07f85',
-  purpleLight: '#978ecb',
+  purpleLight: '#978ecb'
 }

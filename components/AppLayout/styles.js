@@ -1,5 +1,5 @@
-import { colors, fonts, breakpoints } from '../../styles/theme';
-import css from 'styled-jsx/css';
+import { colors, fonts, breakpoints } from '../../styles/theme'
+import css from 'styled-jsx/css'
 
 export const GlobalStyles = css.global`
   html, body {
