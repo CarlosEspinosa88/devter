@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import AppLayout from '../components/AppLayout';
-import { colors } from '../styles/theme';
-import Button from '../components/Button';
-import GitHub from '../components/Icon/GitHub';
+/* eslint-disable no-mixed-operators */
+import { useState, useEffect } from 'react'
+import { colors } from '../styles/theme'
 import { addOpacityToColor } from '../styles/utils'
-import { loginWithGitHub, onAuthStateChanged } from '../firebase/client';
+import AppLayout from '../components/AppLayout'
+import GitHub from '../components/Icon/GitHub'
+import Button from '../components/Button'
+import { loginWithGitHub, onAuthStateChanged } from '../firebase/client'
 
-export default function Home() {
+export default function Home () {
   const shadowColor = addOpacityToColor(colors.gray.semiLight, 0.9)
   const [user, setUser] = useState(undefined)
 
   useEffect(() => {
-    onAuthStateChanged(setUser) 
+    onAuthStateChanged(setUser)
   }, [])
 
   const handlerClickLogin = () => {
@@ -21,30 +21,29 @@ export default function Home() {
     })
   }
 
-  console.log(user)
   return (
     <AppLayout>
       <section>
-          <img src="/fish.svg" width="100" height="100" alt="devter" />
-          <h1>Welcome to Devter {user?.avatar && user?.username }</h1>
-          <div>
-            {user === undefined || user?.avatar === undefined && (
-              <Button onClick={handlerClickLogin}>
-                <GitHub width={20} height={20} fill={`${colors.white}`} />
-                Ingresar
-              </Button>
-            )}
+        <img src="/fish.svg" width="100" height="100" alt="devter" />
+        <h1>Welcome to Devter {user?.avatar && user?.username }</h1>
+        <div>
+          {user === undefined || user?.avatar === undefined && (
+            <Button onClick={handlerClickLogin}>
+              <GitHub width={20} height={20} fill={`${colors.white}`} />
+              Ingresar
+            </Button>
+          )}
 
-            {user?.avatar && (
-              <div className="card">
-                <img className="avatar" width={80} height={80} src={user?.avatar} />
-                <div className="info">
-                  <h3>{user?.username}</h3>
-                  <p>{user?.email}</p>
-                </div>
+          {user?.avatar && (
+            <div className="card">
+              <img className="avatar" width={80} height={80} src={user?.avatar} />
+              <div className="info">
+                <h3>{user?.username}</h3>
+                <p>{user?.email}</p>
               </div>
-            )}
-          </div>
+            </div>
+          )}
+        </div>
       </section>
       <style jsx>
         {`

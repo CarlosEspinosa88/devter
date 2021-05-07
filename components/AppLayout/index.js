@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import style, { GlobalStyles } from './styles';
+import Head from 'next/head'
+import style, { GlobalStyles } from './styles'
 
-export default function AppLayout({children}) {
+export default function AppLayout ({ children }) {
   return (
     <>
       <Head>
