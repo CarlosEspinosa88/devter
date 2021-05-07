@@ -28,7 +28,7 @@ export default css`
     height: 100vh;
     width: 100%;
     border-radius: 0px;
-    background-color: #f1f1f1
+    background-color: ${colors.gray.light}
   }
 
   @media (min-width: ${breakpoints.mobile}) {

@@ -1,8 +1,6 @@
-// import * as firebase from 'firebase';
 import firebase from 'firebase/app'
 import "firebase/auth"
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyD8QIsNEUmkFGcJ4WUn8kayBSpKfnNjCyg",
   authDomain: "devter-e0cd3.firebaseapp.com",
@@ -17,10 +15,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-
-
 const mapUserFromFirebaseAuthToUser = (user) => {
-  console.log('USER', user)
   return {
     avatar: user?.photoURL ,
     username: user?.displayName,
